@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}Blog - Home{% endblock title %}
+{% block blogactive %}active{% endblock blogactive %}
+
+{% block style %}{% endblock style %}
+
+{% block body %}
+<div class="container">
+    {% for post in allPost %}
+    <div class="card my-3">
+        <div class="card-header">
+            {{post.post_author}}
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{post.post_title}}</h5>
+            <p class="card-text">{{post.post_content |slice:"0:150"}}...Countinue</p>
+            <a href="/blog/{{post.post_slug}}" class="btn btn-primary">Read More</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock body %}
